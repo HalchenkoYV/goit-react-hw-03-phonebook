@@ -1,5 +1,5 @@
 import './App.css';
-import React, { Component } from 'react';
+import { Component } from 'react';
 import Container from './Container/Cotainer';
 import Section from './Section/Section';
 import AddContactBox from './AddContactBox/AddContact';
@@ -8,13 +8,25 @@ import shortid from 'shortid';
 
 class App extends Component  {
   state = {
-    contacts: [{id: 'id-1', name: 'Rosie Simpson', number: '459-12-56'},
-    {id: 'id-2', name: 'Hermione Kline', number: '443-89-12'},
-    {id: 'id-3', name: 'Eden Clements', number: '645-17-79'},
+    contacts: [{ id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
+    { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
+    { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
     { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' }],
-    filter:''
+    filter: ''
+  };
+
+  componentDidMount() {
+    const savedContacts = localStorage.getItem("contacts");
+    const parsedContacts = JSON.parse(savedContacts);
+
+    this.setState({contacts:parsedContacts})
   }
   
+  componentDidUpdate() {
+    const { contacts } = this.state;
+    localStorage.setItem("contacts", JSON.stringify(contacts));
+  }
+
   addContact = ({name , number}) => {
     const newContact = {
       id: shortid.generate(),

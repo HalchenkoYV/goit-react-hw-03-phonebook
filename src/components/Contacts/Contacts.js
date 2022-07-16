@@ -1,7 +1,7 @@
 import './Contacts.module..css';
 import React from 'react';
 
-function Contacts ({listContacts, toFilter, currentFilter, toDelete}) {
+function Contacts({ listContacts, toFilter, currentFilter, toDelete }) {
     return (
         <div>
             <label>Find contacts by name
