@@ -15,12 +15,12 @@ class App extends Component  {
     filter: ''
   };
 
-  componentDidMount() {
-    const savedContacts = localStorage.getItem("contacts");
-    const parsedContacts = JSON.parse(savedContacts);
+  // componentDidMount() {
+  //   const savedContacts = localStorage.getItem("contacts");
+  //   const parsedContacts = JSON.parse(savedContacts);
 
-    this.setState({contacts:parsedContacts})
-  }
+  //   this.setState({contacts:parsedContacts})
+  // }
   
   componentDidUpdate() {
     const { contacts } = this.state;

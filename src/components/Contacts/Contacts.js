@@ -1,4 +1,4 @@
-import './Contacts.module..css';
+// import './Contacts.module.css';
 import React from 'react';
 
 function Contacts({ listContacts, toFilter, currentFilter, toDelete }) {
